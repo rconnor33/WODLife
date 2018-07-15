@@ -231,6 +231,14 @@
       <DependentUpon>201807081428024_InitialCreate.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201807081428024_InitialCreate.vb" />
+    <Compile Include="Migrations\201807141433507_WODTableChanges_Jul14_1530.Designer.vb">
+      <DependentUpon>201807141433507_WODTableChanges_Jul14_1530.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807141433507_WODTableChanges_Jul14_1530.vb" />
+    <Compile Include="Migrations\201807151120120_AdditonalWODDetails_July15_1220.Designer.vb">
+      <DependentUpon>201807151120120_AdditonalWODDetails_July15_1220.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807151120120_AdditonalWODDetails_July15_1220.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
@@ -257,6 +265,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807081428024_InitialCreate.resx">
       <DependentUpon>201807081428024_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807141433507_WODTableChanges_Jul14_1530.resx">
+      <DependentUpon>201807141433507_WODTableChanges_Jul14_1530.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807151120120_AdditonalWODDetails_July15_1220.resx">
+      <DependentUpon>201807151120120_AdditonalWODDetails_July15_1220.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

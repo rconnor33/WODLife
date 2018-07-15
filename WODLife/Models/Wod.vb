@@ -13,7 +13,7 @@ Public Class Wod
     End Property
 
     Private wodNameValue As String
-    <Required(ErrorMessage:="Please enter a anme for this WOD")>
+    '<Required(ErrorMessage:="Please enter a name for this WOD")>
     <Display(Name:="WOD Name")>
     Public Property wodName() As String
         Get
@@ -23,6 +23,73 @@ Public Class Wod
             wodNameValue = value
         End Set
     End Property
+
+    Private wodDescriptionValue As String
+    '<Required(ErrorMessage:="You must provide details of the WOD")>
+    <Display(Name:="WOD Details")>
+    Public Property wodDescription() As String
+        Get
+            Return wodDescriptionValue
+        End Get
+        Set(ByVal value As String)
+            wodDescriptionValue = value
+        End Set
+    End Property
+
+    Private wodNotesValue As String
+    <Display(Name:="Extra Notes")>
+    Public Property wodNotes() As String
+        Get
+            Return wodNotesValue
+        End Get
+        Set(ByVal value As String)
+            wodNotesValue = value
+        End Set
+    End Property
+
+    Private wodTypeIDValue As Integer
+    <Display(Name:="WOD Type ID")>
+    Public Property wodTypeID() As Integer
+        Get
+            Return wodTypeIDValue
+        End Get
+        Set(ByVal value As Integer)
+            wodTypeIDValue = value
+        End Set
+    End Property
+
+    Private wodTypeValue As String
+    ' <Required(ErrorMessage:="Is this WOD an AMRAP, RFT or Strength type?")>
+    <Display(Name:="WOD Type")>
+    Public Property wodType() As String
+        Get
+            Return wodTypeValue
+        End Get
+        Set(ByVal value As String)
+            wodTypeValue = value
+        End Set
+    End Property
+
+
+    'Private movementListValue As MovementListModel
+    'Public Overridable Property movementList() As MovementListModel
+    '    Get
+    '        Return movementListValue
+    '    End Get
+    '    Set(ByVal value As MovementListModel)
+    '        movementListValue = value
+    '    End Set
+    'End Property
+
+    'Private movementListIDValue As String
+    'Public Property movementListID() As String
+    '    Get
+    '        Return movementListIDValue
+    '    End Get
+    '    Set(ByVal value As String)
+    '        movementListIDValue = value
+    '    End Set
+    'End Property
 
     Private UserValue As ApplicationUser
     Public Overridable Property User() As ApplicationUser
