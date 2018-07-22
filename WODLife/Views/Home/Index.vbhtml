@@ -3,7 +3,7 @@
 End Code
 
 <div class="row">
-    <div class="col-md-6 margin-top-20"><a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-cog"></span>Add WOD</a></div>
+    <div class="col-md-6 margin-top-20"><a href="@Url.Action("Create", "Wod")" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-cog"></span>Add WOD</a></div>
     <div class="col-md-6 margin-top-20"><a href="@Url.Action("Details", "Wod")" class="btn btn-primary btn-lg btn-block">View WOD</a></div>
 </div>
 

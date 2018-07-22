@@ -3,6 +3,7 @@ Imports System.ComponentModel.DataAnnotations
 
 Public Class Wod
     Private wodIDvalue As Integer
+    <Key>
     Public Property wodID() As Integer
         Get
             Return wodIDvalue
@@ -58,38 +59,18 @@ Public Class Wod
         End Set
     End Property
 
-    Private wodTypeValue As String
+    Private wodTypeValue As WodType
     ' <Required(ErrorMessage:="Is this WOD an AMRAP, RFT or Strength type?")>
     <Display(Name:="WOD Type")>
-    Public Property wodType() As String
+    Public Property wodType() As WodType
         Get
             Return wodTypeValue
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As WodType)
             wodTypeValue = value
         End Set
     End Property
 
-
-    'Private movementListValue As MovementListModel
-    'Public Overridable Property movementList() As MovementListModel
-    '    Get
-    '        Return movementListValue
-    '    End Get
-    '    Set(ByVal value As MovementListModel)
-    '        movementListValue = value
-    '    End Set
-    'End Property
-
-    'Private movementListIDValue As String
-    'Public Property movementListID() As String
-    '    Get
-    '        Return movementListIDValue
-    '    End Get
-    '    Set(ByVal value As String)
-    '        movementListIDValue = value
-    '    End Set
-    'End Property
 
     Private UserValue As ApplicationUser
     Public Overridable Property User() As ApplicationUser

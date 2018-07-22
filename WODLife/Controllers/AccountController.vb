@@ -136,12 +136,12 @@ Public Class AccountController
             }
             Dim result = Await UserManager.CreateAsync(user, model.Password)
             If result.Succeeded Then
-                Dim db As New ApplicationDbContext()
-                Dim wod As New Wod()
-                wod.wodName = "Murph"
-                wod.ApplicationUserID = user.Id
-                db.Wods.Add(wod)
-                db.SaveChanges()
+                'Dim db As New ApplicationDbContext()
+                'Dim wod As New Wod()
+                'Wod.wodName = "Murph"
+                'Wod.ApplicationUserID = user.Id
+                'db.Wods.Add(wod)
+                'db.SaveChanges()
 
                 Await SignInManager.SignInAsync(user, isPersistent:=False, rememberBrowser:=False)
 

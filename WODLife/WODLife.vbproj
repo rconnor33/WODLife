@@ -239,11 +239,29 @@
       <DependentUpon>201807151120120_AdditonalWODDetails_July15_1220.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201807151120120_AdditonalWODDetails_July15_1220.vb" />
+    <Compile Include="Migrations\201807211542049_WodTypeTable.Designer.vb">
+      <DependentUpon>201807211542049_WodTypeTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211542049_WodTypeTable.vb" />
+    <Compile Include="Migrations\201807211545361_WodTypeTable2.Designer.vb">
+      <DependentUpon>201807211545361_WodTypeTable2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211545361_WodTypeTable2.vb" />
+    <Compile Include="Migrations\201807211640157_WodTypeTable3.Designer.vb">
+      <DependentUpon>201807211640157_WodTypeTable3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211640157_WodTypeTable3.vb" />
+    <Compile Include="Migrations\201807221601138_ScoreTableAdded.Designer.vb">
+      <DependentUpon>201807221601138_ScoreTableAdded.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807221601138_ScoreTableAdded.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\Score.vb" />
     <Compile Include="Models\Wod.vb" />
+    <Compile Include="Models\WodType.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -271,6 +289,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807151120120_AdditonalWODDetails_July15_1220.resx">
       <DependentUpon>201807151120120_AdditonalWODDetails_July15_1220.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211542049_WodTypeTable.resx">
+      <DependentUpon>201807211542049_WodTypeTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211545361_WodTypeTable2.resx">
+      <DependentUpon>201807211545361_WodTypeTable2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211640157_WodTypeTable3.resx">
+      <DependentUpon>201807211640157_WodTypeTable3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221601138_ScoreTableAdded.resx">
+      <DependentUpon>201807221601138_ScoreTableAdded.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

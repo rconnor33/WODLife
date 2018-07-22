@@ -36,4 +36,24 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+    Private wodTypesValue As DbSet(Of WodType)
+    Public Property WodTypes() As DbSet(Of WodType)
+        Get
+            Return wodTypesValue
+        End Get
+        Set(ByVal value As DbSet(Of WodType))
+            wodTypesValue = value
+        End Set
+    End Property
+
+    Private wodScoresValue As DbSet(Of Score)
+    Public Property wodScores() As DbSet(Of Score)
+        Get
+            Return wodScoresValue
+        End Get
+        Set(ByVal value As DbSet(Of Score))
+            wodScoresValue = value
+        End Set
+    End Property
+
 End Class
