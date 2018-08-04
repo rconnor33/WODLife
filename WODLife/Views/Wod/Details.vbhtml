@@ -1,4 +1,4 @@
-﻿@Modeltype IEnumerable(Of WODLife.Wod)
+﻿@Modeltype WodViewModel
 @*@ModelType WODLife.Wod*@
 @Code
     ViewData("Title") = "Details"
@@ -36,22 +36,28 @@ $("#subject").change(function(){
     *@
 <table class="table">
     <tr>
+        <th></th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.wodName)
+            @Html.DisplayNameFor(Function(model) model.WodList.Item(1).wodName)
         </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.wodDescription)
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(Function(model) model.wodType)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.wodNotes)
-        </th>
+         <th>
+                @Html.DisplayNameFor(Function(model) model.WodList.Item(1).wodDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Function(model) model.WodList.Item(1).wodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Function(model) model.WodList.Item(1).wodNotes)
+            </th>
         <th></th>
     </tr>
-    @code For Each item In Model end code
+
+    @code For Each item In Model.WodList end code
     <tr>
+        <td>
+                @Html.ActionLink("Edit", "Edit", New With {.id = item.wodID})
+               @* @Html.ActionLink("Back to List", "Index") *@
+        </td>
         <td>
             @Html.DisplayFor(Function(model) item.wodName)
         </td>
@@ -59,7 +65,7 @@ $("#subject").change(function(){
             @Html.DisplayFor(Function(model) item.wodDescription)
         </td>
         <td>
-            @*  @Html.DisplayFor(Function(model) item.wodType) *@
+            @Html.DisplayFor(Function(model) item.wodType.wodType)
         </td>
         <td>
             @Html.DisplayFor(Function(model) item.wodNotes)

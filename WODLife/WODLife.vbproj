@@ -262,6 +262,7 @@
     <Compile Include="Models\Score.vb" />
     <Compile Include="Models\Wod.vb" />
     <Compile Include="Models\WodType.vb" />
+    <Compile Include="Models\WodViewModels.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -483,6 +484,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Wod\Details.vbhtml" />
     <Content Include="Views\Wod\Create.vbhtml" />
+    <Content Include="Views\View.vbhtml" />
+    <Content Include="Views\Wod\Edit.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

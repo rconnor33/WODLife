@@ -26,25 +26,25 @@ End Code
                 @Html.ValidationMessageFor(Function(model) model.wodType, "", New With {.class = "text-danger"})
             </div>
         </div> *@
-        <div class="form-group">
+        <div class="form-group dropdown-header">
             @Html.LabelFor(Function(model) model.wodType, htmlAttributes:=New With {.class = "control-label col-md-2"})
         <div class="col-md-10">
-           @Html.DropDownListFor(Function(model) model.wodTypeID, New SelectList(ViewBag.wodTypeItems, "Value", "Text", New With {.id = "ddlWodTypes", .class = "form-control"})) 
+           @Html.DropDownListFor(Function(model) model.wodTypeID, New SelectList(ViewBag.wodTypeItems, "Value", "Text", New With {.id = "ddlWodTypes", .class = "dropdown-item"})) 
         @*    @Html.DropDownList("WodTypeItems", "Please select a WOD Type...") *@
             @Html.ValidationMessageFor(Function(model) model.wodTypeID, "", New With {.class = "text-danger"})
         </div>
         </div>
         <div Class="form-group">
             @Html.LabelFor(Function(model) model.wodDescription, htmlAttributes:=New With {.class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.wodDescription, New With {.htmlAttributes = New With {.class = "form-control"}})
+            <div class="col-md-10 bootstrap form-text">
+                @Html.TextAreaFor(Function(model) model.wodDescription, New With {.htmlAttributes = New With {.class = "form-control"}})
                 @Html.ValidationMessageFor(Function(model) model.wodDescription, "", New With {.class = "text-danger"})
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(Function(model) model.wodNotes, htmlAttributes:=New With {.class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.wodNotes, New With {.htmlAttributes = New With {.class = "form-control"}})
+            <div class="col-md-10 bootstrap form-text">
+                @Html.TextAreaFor(Function(model) model.wodNotes, New With {.htmlAttributes = New With {.class = "form-control"}})
                 @Html.ValidationMessageFor(Function(model) model.wodNotes, "", New With {.class = "text-danger"})
             </div>
         </div>

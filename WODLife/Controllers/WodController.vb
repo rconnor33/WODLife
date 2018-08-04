@@ -1,4 +1,5 @@
-﻿Imports System.Web.Mvc
+﻿Imports System.Data.Entity
+Imports System.Web.Mvc
 Imports Microsoft.AspNet.Identity
 
 Namespace Controllers
@@ -14,10 +15,14 @@ Namespace Controllers
         ' GET: Wod/Details
         Function Details() As ActionResult
             Dim db As New ApplicationDbContext
-            'Dim wodObj As New Wod
-            'wodObj.wodID = 1
-            'wodObj.wodName = "Helen"
-            Return View(db.Wods)
+            Dim wodObjs = db.Wods.ToList
+            Dim wodTypes = db.WodTypes.ToList
+
+            Dim vmWod = New WodViewModel()
+            vmWod.WodList = wodObjs
+            vmWod.WodTypeList = wodTypes
+
+            Return View(vmWod)
         End Function
 
         ' GET: Wod/Create
@@ -61,16 +66,42 @@ Namespace Controllers
 
         ' GET: Wod/Edit/5
         Function Edit(ByVal id As Integer) As ActionResult
-            Return View()
+            Dim db As New ApplicationDbContext
+            Dim editWodObj As Wod = db.Wods.Find(id)
+
+            'get and populate the dropdown list for WOD types from the DB
+            Dim Items As IEnumerable(Of SelectListItem)
+            Items = db.WodTypes.Select(Function(c) New SelectListItem() With {.Value = c.wodTypeID, .Text = c.wodType})
+            ViewBag.WodTypeItems = New SelectList(db.WodTypes, "wodTypeID", "wodType")
+
+            Return View(editWodObj)
         End Function
 
         ' POST: Wod/Edit/5
+
+        'Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
         <HttpPost()>
-        Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
+        Function Edit(<Bind(Include:="wodID,ApplicationUserID,wodName,wodTypeID,wodDescription,wodNotes")> ByVal wod As Wod) As ActionResult
             Try
                 ' TODO: Add update logic here
+                'initialise the DB connection
+                Dim db As New ApplicationDbContext()
+                'get Uer object for ID
+                'Dim editWodObj As Wod = db.Wods.Find(id)
+                'create WOD object to send to DB
+                'editWodObj.wodName = collection.Item.
+                'editWodObj.ApplicationUserID = userId
+                'editWodObj.wodDescription = model.wodDescription
+                'ViewBag.GenderID = New SelectList(db.Genders, "GenderID", "GenderName")
+                'editWodObj.wodTypeID = model.wodTypeID
+                ' wod.wodType = model.wodType
+                'editWodObj.wodNotes = model.wodNotes
+                db.Entry(wod).State = EntityState.Modified
 
-                Return RedirectToAction("Index")
+                db.SaveChanges()
+
+
+                Return RedirectToAction("Details")
             Catch
                 Return View()
             End Try
