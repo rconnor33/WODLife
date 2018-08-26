@@ -62,6 +62,9 @@ Public Class Score
     End Property
 
     Private scoreDateValue As Date
+    <Required>
+    <DataType(DataType.Date)>
+    <DisplayFormat(DataFormatString:="{0:dd/MM/yyyy}")>
     Public Property scoreDate() As Date
         Get
             Return scoreDateValue

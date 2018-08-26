@@ -19,4 +19,14 @@ Public Class WodViewModel
             wodTypeListValue = value
         End Set
     End Property
+
+    Private wodScoreListValue As List(Of Score)
+    Public Property wodScoreList() As List(Of Score)
+        Get
+            Return wodScoreListValue
+        End Get
+        Set(ByVal value As List(Of Score))
+            wodScoreListValue = value
+        End Set
+    End Property
 End Class

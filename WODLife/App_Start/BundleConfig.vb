@@ -16,10 +16,12 @@ Public Module BundleConfig
                     "~/Scripts/modernizr-*"))
 
         bundles.Add(New ScriptBundle("~/bundles/bootstrap").Include(
-                  "~/Scripts/bootstrap.js"))
+                  "~/Scripts/bootstrap.js",
+                  "~/Scripts/bootstrap-datepicker.js"))
 
         bundles.Add(New StyleBundle("~/Content/css").Include(
                   "~/Content/bootstrap.css",
+                   "~/Content/bootstrap-datepicker3.css",
                   "~/Content/site.css"))
     End Sub
 End Module

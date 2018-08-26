@@ -123,5 +123,74 @@ Namespace Controllers
                 Return View()
             End Try
         End Function
+
+        ' GET: Wod/LogWod/
+        Function LogWod() As ActionResult
+            Dim db As New ApplicationDbContext()
+            'ViewBag.wodTypeID = New SelectList(db.WodTypes, "WodTypeID", "WodType")
+            Dim Items As IEnumerable(Of SelectListItem)
+            Items = db.Wods.Select(Function(c) New SelectListItem() With {.Value = c.wodID, .Text = c.wodName})
+            'ViewBag.WodTypeItems = Items
+            ViewBag.WodItems = New SelectList(db.Wods, "wodID", "wodName")
+            Return View()
+        End Function
+
+        ' POST: Wod/LogWod/
+        <HttpPost()>
+        Function LogWod(ByVal model As Score) As ActionResult
+            Try
+                ' TODO: Add insert logic here
+                'initialise the DB connection
+                Dim db As New ApplicationDbContext()
+                'get Uer object for ID
+                Dim userId = User.Identity.GetUserId()
+                'create Score object to send to DB
+                Dim WodScore As New Score
+                WodScore.userID = userId
+                WodScore.wodID = model.wodID
+                WodScore.scoreDate = model.scoreDate
+                WodScore.scalingNotes = model.scalingNotes
+                WodScore.scoreReps = model.scoreReps
+                WodScore.scoreRounds = model.scoreRounds
+                WodScore.scoreTime = model.scoreTime
+                WodScore.scoreWeight = model.scoreWeight
+
+                db.wodScores.Add(WodScore)
+                db.SaveChanges()
+
+                Return RedirectToAction("Index")
+            Catch
+                Return View()
+            End Try
+        End Function
+
+        <HttpPost()>
+        Function GetDefault(ByVal val As Integer?) As ActionResult
+            If Not IsDBNull(val) Then
+                'Use the passed in value (wodID) to grab the wod type from the DB
+                'and display the correct scoring method.
+                Dim db As New ApplicationDbContext
+                Dim WodObj As Wod = db.Wods.Find(val)
+
+                Select Case WodObj.wodTypeID
+
+                    Case 1
+                        '1 = AMRAP
+                        Return Json(New With {.Success = "true", .Data = New With {.TypeID = 1}})
+                    Case 2
+                        '2 = Rounds For Time
+                        Return Json(New With {.Success = "true", .Data = New With {.TypeID = 2}})
+                    Case 3
+                        '3 = Strength / Lifting
+                        Return Json(New With {.Success = "true", .Data = New With {.TypeID = 3}})
+                    Case Else
+                        Return Json(New With {.Success = "false"})
+                End Select
+
+                'Return Json(New With {.Success = "true"})
+            Else
+                Return Json(New With {.Success = "false"})
+            End If
+        End Function
     End Class
 End Namespace
